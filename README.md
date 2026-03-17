@@ -2,8 +2,8 @@
 
 <div align="center">
 
-**Yifan Zhan<sup>1*</sup>, Zhengqing Chen<sup>2*‡</sup>, Qingjie Wang<sup>2*</sup>, Zhuo He<sup>3</sup>, Muyao Niu<sup>1</sup>, Xiaoyang Guo<sup>2</sup>**
-**Wei Yin<sup>2</sup>, Weiqiang Ren<sup>2</sup>, Qian Zhang<sup>2</sup>, Yinqiang Zheng<sup>1†</sup>**
+<strong>Yifan Zhan<sup>1*</sup>, Zhengqing Chen<sup>2*‡</sup>, Qingjie Wang<sup>2*</sup>, Zhuo He<sup>3</sup>, Muyao Niu<sup>1</sup>, Xiaoyang Guo<sup>2</sup></strong><br>
+<strong>Wei Yin<sup>2</sup>, Weiqiang Ren<sup>2</sup>, Qian Zhang<sup>2</sup>, Yinqiang Zheng<sup>1†</sup></strong>
 
 <sup>1</sup>The University of Tokyo    <sup>2</sup>Horizon Robotics    <sup>3</sup>University of Glasgow
 
