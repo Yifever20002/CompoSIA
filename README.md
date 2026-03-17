@@ -28,12 +28,15 @@
 **CompoSIA** is a compositional driving video simulator designed for **fine-grained adversarial scenario generation** through **disentangled control** of:
 
 * **Structure** 🚗
+  
   scene layout and object placement;
 
 * **Identity** 🎨
+  
   object appearance editing from a single reference image;
 
 * **Action** 🎮
+  
   ego-motion and controllable traffic dynamics.
 
 ---
