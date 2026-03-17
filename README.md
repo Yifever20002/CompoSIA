@@ -16,6 +16,11 @@
 
 </div>
 
+<p align="center">
+    <img src="https://github.com/Yifever20002/CompoSIA/blob/main/images/logo.png" width="95%">
+  </a>
+</p>
+
 ---
 
 ## 🌍 Overview
