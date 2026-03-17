@@ -50,6 +50,15 @@
 
 ---
 
+## 📌 TODO
+
+- [x] Paper release
+- [ ] Inference code
+- [ ] Training code
+
+---
+
+
 ## 🧪 Citation
 
 ```bibtex
