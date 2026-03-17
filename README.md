@@ -60,7 +60,7 @@
 
 
 ## 🧪 Citation
-
+If you find our work useful, please cite it as
 ```bibtex
 @article{zhan2026composia,
   title={Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation},
