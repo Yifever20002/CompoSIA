@@ -196,7 +196,7 @@
             <h1 class="title is-1 publication-title">
               <img src="static/images/icon.png"
               style="height:60px; vertical-align:middle; margin-right:-6px; position:relative; top:-15px;">
-              Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation
+              CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation
             </h1>
 
             <div class="is-size-5 publication-authors">
@@ -253,7 +253,7 @@
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/<ARXIV_PAPER_ID>.pdf" target="_blank"
+                  <a href="https://arxiv.org/pdf/2603.12864" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -263,7 +263,7 @@
                 </span>
 
                 <span class="link-block">
-                  <a href="https://github.com/YOUR_REPO_HERE" target="_blank"
+                  <a href="https://github.com/Yifever20002/CompoSIA" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -273,7 +273,7 @@
                 </span>
 
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV_PAPER_ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2603.12864" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -318,7 +318,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            A major challenge in autonomous driving is the "long tail" of safety-critical edge cases, which often emerge from unusual combinations of common traffic elements. Synthesizing these scenarios is crucial, yet current controllable generative models provide incomplete or entangled guidance, preventing the independent manipulation of scene structure, object identity, and ego actions. We introduce CompoSIA, a compositional driving video simulator that disentangles these traffic factors, enabling fine-grained control over diverse adversarial driving scenarios. Extensive comparisons demonstrate superior controllable generation quality over state-of-the-art baselines, with a 17% improvement in FVD for identity editing and reductions of 30% and 47% in rotation and translation errors for action control. Furthermore, downstream stress-testing reveals substantial planner failures: across editing modalities, the average collision rate of 3s increases by 173%.
+            A major challenge in autonomous driving is the "long tail" of safety-critical edge cases, which often emerge from unusual combinations of common traffic elements. Synthesizing these scenarios is crucial, yet current controllable generative models provide incomplete or entangled guidance, preventing the independent manipulation of scene structure, object identity, and ego actions. We introduce <strong>CompoSIA</strong>, a compositional driving video simulator that disentangles these traffic factors, enabling fine-grained control over diverse adversarial driving scenarios. Extensive comparisons demonstrate superior controllable generation quality over state-of-the-art baselines, with a 17% improvement in FVD for identity editing and reductions of 30% and 47% in rotation and translation errors for action control. Furthermore, downstream stress-testing reveals substantial planner failures: across editing modalities, the average collision rate of 3s increases by 173%.
           </p>
         </div>
       </div>
@@ -332,20 +332,13 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
+      <div id="results-carousel">
        <div class="item">
         <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
+        <img src="static/images/pipeline.png" alt="First research result visualization" loading="lazy"/>
         <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
+        <h2 class="subtitle" style="text-align: justify;">
+          Overview of the <strong>CompoSIA</strong> framework. During training (top), structure, identity, and ego-action signals are explicitly decomposed and injected into a Flow Matching–based DiT backbone in a disentangled yet compositional manner. During sampling (bottom), different combinations of conditions enable controllable driving video generation, supporting multiple editing applications.
         </h2>
       </div>
   </div>
@@ -359,28 +352,23 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Structure Control</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
+        <div class="item item-video1" style="width:65%; margin:auto;">
           <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
+          <video poster="" id="video1" controls muted loop preload="metadata" style="width:100%;">
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
+            <source src="static/videos/1-1.mp4" type="video/mp4">
           </video>
+          <h2 class="subtitle has-text-centered" style="color:#2DB7A3; font-size:1.6rem !important;">Right car cuts in</h2>
         </div>
-        <div class="item item-video2">
+        <div class="item item-video2" style="width:65%; margin:auto;">
           <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
+          <video poster="" id="video2" controls muted loop preload="metadata" style="width:100%;">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
+            <source src="static/videos/2-1.mp4" type="video/mp4">
           </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
+          <h2 class="subtitle has-text-centered" style="color:#2DB7A3; font-size:1.6rem !important;">Front vehicle removed</h2>
         </div>
       </div>
     </div>
@@ -393,21 +381,217 @@
 
 
 
-<!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- Video carousel -->
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+      <h2 class="title is-3">Identity Control</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video1" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/3-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="color:#E58A2B; font-size:1.6rem !important;">Right bus to this ID</h2>
+        </div>
+        <div class="item item-video2" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video2" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/4-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="color:#E58A2B; font-size:1.6rem !important;">Left car to this ID</h2>
+        </div>
       </div>
     </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</section>
+<!-- End video carousel -->
 
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Action Control</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video1" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/5-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="color:#E86A8B; font-size:1.6rem !important;">Change to the left line</h2>
+        </div>
+        <div class="item item-video2" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video2" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/6-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="color:#E86A8B; font-size:1.6rem !important;">Go straight</h2>
+        </div>
+        <div class="item item-video3" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video3" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/9-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="color:#E86A8B; font-size:1.6rem !important;">Change to the left line</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Compositional Control</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video1" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/01-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Left car skids</span> and
+            <span style="color:#E86A8B;">Ego sudden stop</span>
+          </h2>
+        </div>
+        <div class="item item-video2" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video2" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/02-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Front car starts</span>,
+            <span style="color:#E58A2B;">Object inserted</span> and
+            <span style="color:#E86A8B;">Ego starts</span>
+          </h2>
+        </div>
+        <div class="item item-video3" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video3" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/03-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Left car cuts in</span> and
+            <span style="color:#E86A8B;">Ego stop</span>
+          </h2>
+        </div>
+        <div class="item item-video4" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video4" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/04-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Front car starts</span>,
+            <span style="color:#E58A2B;">ID changed</span> and
+            <span style="color:#E86A8B;">Ego starts</span>
+          </h2>
+        </div>
+        <div class="item item-video5" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video5" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/05-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Left car cuts in</span> and
+            <span style="color:#E86A8B;">Ego sudden stop</span>
+          </h2>
+        </div>
+        <div class="item item-video6" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video6" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/06-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Front car starts</span> and
+            <span style="color:#E58A2B;">ID changed</span>
+          </h2>
+        </div>
+        <div class="item item-video7" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video7" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/07-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Right car cuts in</span> and
+            <span style="color:#E86A8B;">Ego sudden stop</span>
+          </h2>
+        </div>
+        <div class="item item-video8" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video8" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/08-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Front truck skids toward ego </span> and
+            <span style="color:#E58A2B;">ID changed</span>
+
+          </h2>
+        </div>
+        <div class="item item-video9" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video9" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/09-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="font-size:1.6rem !important;">
+            <span style="color:#2DB7A3;">Front truck cuts in</span> and
+            <span style="color:#E58A2B;">ID changed</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Ablations</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video1" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/ab1-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle" style="text-align: justify;">
+            <strong>(Left)</strong> Without action conditioning, the ego motion becomes unstable. <strong>(Right)</strong> Without structure conditioning, surrounding vehicles fail to maintain consistent motion and spatial alignment.
+          </h2>
+        </div>
+        <div class="item item-video2" style="width:65%; margin:auto;">
+          <!-- TODO: Add poster image for better preview -->
+          <video poster="" id="video2" controls muted loop preload="metadata" style="width:100%;">
+            <!-- Your video file here -->
+            <source src="static/videos/ab2-1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle" style="text-align: justify;">
+            <strong>Ablations on identity conditioning.</strong> Earlier stopping (T<sub>id</sub> = 0.6) increases generation freedom but reduces similarity to the reference image, whereas later stopping (T<sub>id</sub> = 0.2) enforces stronger identity preservation but increasingly anchors the generation to the reference image.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
 
 
 <!--BibTex citation -->
