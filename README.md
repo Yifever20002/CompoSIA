@@ -29,11 +29,11 @@
 
 * **Structure** 🚗
   
-  scene layout and object placement;
+  element layout placement;
 
 * **Identity** 🎨
   
-  object appearance editing from a single reference image;
+  element appearance editing from a single reference image;
 
 * **Action** 🎮
   
