@@ -1,4 +1,4 @@
-# 🦋 CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation
+# <img src="[static/images/butterfly.png](https://github.com/Yifever20002/CompoSIA/blob/main/images/icon.png)" width="38"> CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation
 
 <div align="center">
 
