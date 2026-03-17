@@ -13,7 +13,6 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2603.12864-b31b1b.svg)](https://arxiv.org/abs/2603.12864)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://yifever20002.github.io/CompoSIA/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 
 </div>
 
