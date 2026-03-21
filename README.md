@@ -75,7 +75,7 @@ Qian Zhang<sup>2</sup>,
 ## 🧪 Citation
 If you find our work useful, please cite it as
 ```bibtex
-@article{zhan2026composia,
+@article{zhan2026composing,
   title={Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation},
   author={Zhan, Yifan and Chen, Zhengqing and Wang, Qingjie and He, Zhuo and Niu, Muyao and Guo, Xiaoyang and Yin, Wei and Ren, Weiqiang and Zhang, Qian and Zheng, Yinqiang},
   journal={arXiv preprint arXiv:2603.12864},
