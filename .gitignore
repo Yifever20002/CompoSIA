@@ -1,0 +1,10 @@
+# Claude Code memory
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

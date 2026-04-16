@@ -90,53 +90,118 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Video carousel autoplay when in view
-function setupVideoCarouselAutoplay() {
-    const carouselVideos = document.querySelectorAll('.results-carousel video');
-    
-    if (carouselVideos.length === 0) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const video = entry.target;
-            if (entry.isIntersecting) {
-                // Video is in view, play it
-                video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
-                    console.log('Autoplay prevented:', e);
-                });
-            } else {
-                // Video is out of view, pause it
-                video.pause();
-            }
-        });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
+// Icon effects: float + hover flutter + glow
+function setupIconEffects() {
+    const icon = document.querySelector('.publication-icon');
+    if (!icon) return;
+    icon.addEventListener('mouseenter', () => {
+        icon.classList.add('spinning');
     });
-    
-    carouselVideos.forEach(video => {
-        observer.observe(video);
+    icon.addEventListener('mouseleave', () => {
+        icon.classList.remove('spinning');
     });
 }
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
+// Reading progress bar
+function setupReadingProgress() {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (scrollTop / docHeight * 100) + '%';
+    }, { passive: true });
+}
 
-    var options = {
-		slidesToScroll: 1,
-		slidesToShow: 1,
-		loop: true,
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
-    }
+// 3D tilt on stat cards
+function setupTiltEffect() {
+    document.querySelectorAll('.stat-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+        });
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width  - 0.5;
+            const y = (e.clientY - rect.top)  / rect.height - 0.5;
+            card.style.transform = `perspective(600px) rotateY(${x * 16}deg) rotateX(${-y * 16}deg) translateY(-6px)`;
+            card.style.boxShadow = `${-x * 12}px ${y * 12}px 24px rgba(37,99,235,0.15)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
+            card.style.transform = '';
+            card.style.boxShadow = '';
+        });
+    });
+}
 
-	// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
-    bulmaSlider.attach();
-    
-    // Setup video autoplay for carousel
-    setupVideoCarouselAutoplay();
+// Stat card count-up animation
+function setupCountUp() {
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            const prefix = el.dataset.prefix || '';
+            const suffix = el.dataset.suffix || '';
+            const duration = 1200;
+            const startTime = performance.now();
 
-})
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const current = Math.round(eased * target);
+                el.textContent = prefix + current + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+            observer.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => observer.observe(el));
+}
+
+// Scroll reveal animation
+function setupScrollReveal() {
+    const elements = document.querySelectorAll('.hero:not(:first-of-type), .section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    elements.forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+    });
+}
+
+// Video autoplay when in view
+function setupVideoAutoplay() {
+    const videos = document.querySelectorAll('video[autoplay]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    videos.forEach(video => observer.observe(video));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupIconEffects();
+    setupReadingProgress();
+    setupTiltEffect();
+    setupCountUp();
+    setupScrollReveal();
+    setupVideoAutoplay();
+});

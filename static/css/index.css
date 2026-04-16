@@ -707,20 +707,77 @@ code {
   }
 }
 
-/* Animation for page load */
+/* Scroll reveal animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero, .section {
-  animation: fadeInUp 0.6s ease-out;
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stats cards */
+.stats-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 160px;
+  max-width: 200px;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Sticky color legend */
+#legend-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background-primary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 0.65rem 1.5rem;
 }
 
 /* Improved focus states for accessibility */
@@ -731,6 +788,124 @@ a:focus {
   outline-offset: 2px;
 }
 
+
+/* Clip black line at top of videos */
+video {
+  clip-path: inset(4px 0 4px 0);
+}
+
+/* Video captions */
+.video-caption {
+  font-size: 0.88rem !important;
+  font-weight: 400;
+  margin-top: 0.65rem !important;
+  margin-bottom: 0 !important;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.video-caption.is-justified {
+  text-align: left;
+  font-size: 0.95rem !important;
+}
+
+.cap-tag {
+  display: inline-block;
+  padding: 0.12em 0.7em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+/* Icon float animation */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(0deg); }
+}
+
+@keyframes iconFlutter {
+  0%, 100% { transform: scaleX(1)   translateY(0px);  }
+  15%      { transform: scaleX(0.5) translateY(-5px); }
+  30%      { transform: scaleX(1)   translateY(-8px); }
+  45%      { transform: scaleX(0.5) translateY(-5px); }
+  60%      { transform: scaleX(1)   translateY(-8px); }
+  75%      { transform: scaleX(0.5) translateY(-4px); }
+  90%      { transform: scaleX(1)   translateY(-2px); }
+}
+
+.publication-icon {
+  animation: iconFloat 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.publication-icon.spinning {
+  animation: iconFlutter 0.9s ease infinite;
+  filter: drop-shadow(0 0 16px rgba(124, 58, 237, 0.65));
+}
+
+/* Hero background watermark */
+.hero {
+  position: relative;
+}
+
+.hero-watermark {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55%;
+  max-width: 680px;
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.hero-watermark img {
+  width: 100%;
+}
+
+.hero .hero-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reading progress bar */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #2DB7A3);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Hero animated gradient background */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero.publication-hero {
+  background: linear-gradient(-45deg, #f8fafc, #eff6ff, #f5f3ff, #faf5ff);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* 3D tilt - smooth reset */
+.stat-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
 
 /* Print styles */
 @media print {
