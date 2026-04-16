@@ -537,6 +537,100 @@
   </div>
 </section>
 <!-- End video row -->
+
+<!-- Planning Stress Testing -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Planning Stress Testing</h2>
+
+      <!-- Column headers -->
+      <div style="display:flex; justify-content:center; gap:0.3rem; margin:0 auto 2rem;">
+        <div style="width:440px; text-align:center; padding-bottom:0.5rem; border-bottom:2px solid var(--border-color);">
+          <div style="font-size:0.85rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.06em;">Video</div>
+          <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.2rem;">Conditioning frames (past 6 frames)</div>
+        </div>
+        <div style="text-align:center; padding-bottom:0.5rem; border-bottom:2px solid var(--border-color);">
+          <div style="font-size:0.85rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.06em;">BEV</div>
+          <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.2rem;">Future prediction (next 6 frames)</div>
+        </div>
+      </div>
+
+      <!-- Scenario 35 -->
+      <p style="text-align:center; font-size:0.9rem; font-weight:600; color:var(--text-secondary); margin-bottom:0.75rem; letter-spacing:0.03em;">Scenario 1</p>
+      <div style="margin:0 auto 2.5rem;">
+        <!-- Row 1: GT -->
+        <div style="display:flex; justify-content:center; align-items:flex-start; gap:0.3rem; margin-bottom:1rem;">
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-vid" style="width:440px; display:block;">
+              <source src="static/videos/35_gt.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Before Editing (GT)</p>
+          </div>
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-bev" style="width:auto; display:block;">
+              <source src="static/videos/35_bev_gt.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Before Editing (GT)</p>
+          </div>
+        </div>
+        <!-- Row 2: Edit -->
+        <div style="display:flex; justify-content:center; align-items:flex-start; gap:0.3rem;">
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-vid" style="width:440px; display:block;">
+              <source src="static/videos/35_edit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">After Editing</p>
+          </div>
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-bev" style="width:auto; display:block;">
+              <source src="static/videos/35_bev_edit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">After Editing</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 95 -->
+      <p style="text-align:center; font-size:0.9rem; font-weight:600; color:var(--text-secondary); margin-bottom:0.75rem; letter-spacing:0.03em;">Scenario 2</p>
+      <div style="margin:0 auto;">
+        <!-- Row 1: GT -->
+        <div style="display:flex; justify-content:center; align-items:flex-start; gap:0.3rem; margin-bottom:1rem;">
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-vid" style="width:440px; display:block;">
+              <source src="static/videos/95_gt.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Before Editing (GT)</p>
+          </div>
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-bev" style="width:auto; display:block;">
+              <source src="static/videos/95_bev_gt.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Before Editing (GT)</p>
+          </div>
+        </div>
+        <!-- Row 2: Edit -->
+        <div style="display:flex; justify-content:center; align-items:flex-start; gap:0.3rem;">
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-vid" style="width:440px; display:block;">
+              <source src="static/videos/95_edit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">After Editing</p>
+          </div>
+          <div class="planning-pair">
+            <video autoplay controls muted loop preload="auto" class="planning-bev" style="width:auto; display:block;">
+              <source src="static/videos/95_bev_edit.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">After Editing</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End planning stress testing -->
+
 </div><!-- End video-sections-wrapper -->
 
 

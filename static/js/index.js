@@ -173,7 +173,7 @@ function setupScrollReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.03 });
 
     elements.forEach(el => {
         el.classList.add('scroll-reveal');
@@ -181,20 +181,45 @@ function setupScrollReveal() {
     });
 }
 
-// Video autoplay when in view
+// Video autoplay when in view (play only, no pause, avoids conflicts)
 function setupVideoAutoplay() {
     const videos = document.querySelectorAll('video[autoplay]');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.play().catch(() => {});
-            } else {
-                entry.target.pause();
             }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 });
 
     videos.forEach(video => observer.observe(video));
+}
+
+// Sync BEV video height to match paired Video height
+function setupPlanningHeights() {
+    const grid = document.querySelectorAll('.planning-pair');
+    // Pairs are: [vid0, bev1, vid2, bev3, vid4, bev5, ...]
+    // In each grid, odd-index .planning-pair cells are BEV
+    const pairs = [];
+    for (let i = 0; i < grid.length; i += 2) {
+        pairs.push({ vid: grid[i].querySelector('video'), bev: grid[i+1] && grid[i+1].querySelector('video') });
+    }
+
+    function syncHeights() {
+        pairs.forEach(({ vid, bev }) => {
+            if (!vid || !bev) return;
+            const h = vid.offsetHeight;
+            if (h > 0) bev.style.height = h + 'px';
+        });
+    }
+
+    pairs.forEach(({ vid }) => {
+        if (!vid) return;
+        vid.addEventListener('loadedmetadata', syncHeights);
+        vid.addEventListener('resize', syncHeights);
+    });
+    window.addEventListener('resize', syncHeights);
+    setTimeout(syncHeights, 500);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -204,4 +229,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setupCountUp();
     setupScrollReveal();
     setupVideoAutoplay();
+    setupPlanningHeights();
 });
