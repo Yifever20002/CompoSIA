@@ -36,6 +36,14 @@ Qian Zhang<sup>2</sup>,
 
 ---
 
+## 📌 TODO
+
+- [x] Paper release
+- [ ] Inference code (before June, 2026)
+- [ ] Training code
+
+---
+
 ## 🌍 Overview
 
 **CompoSIA** is a compositional driving video simulator designed for **fine-grained adversarial scenario generation** through **disentangled control** of:
@@ -61,13 +69,6 @@ Qian Zhang<sup>2</sup>,
 * **Hierarchical dual-branch action control**
 * **Adversarial scenario synthesis for planner stress-testing**
 
----
-
-## 📌 TODO
-
-- [x] Paper release
-- [ ] Inference code (before June, 2026)
-- [ ] Training code
 
 ---
 
