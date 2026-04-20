@@ -66,7 +66,7 @@ Qian Zhang<sup>2</sup>,
 ## 📌 TODO
 
 - [x] Paper release
-- [ ] Inference code
+- [ ] Inference code (before June, 2026)
 - [ ] Training code
 
 ---
