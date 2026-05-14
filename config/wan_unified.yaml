@@ -1,0 +1,72 @@
+format: civitai
+pipeline: videox_fun.pipeline.WanFunUnifiedPipeline
+transformer_additional_kwargs:
+  transformer_subpath: ./
+  dict_mapping:
+    in_dim: in_channels
+    dim: hidden_size
+
+  position_embedding_kwargs:
+    type: videox_fun.models.wan_transformer3d_unified.RopeEmb
+
+  additional_condition_kwargs:
+    
+    bbox:
+      type: videox_fun.models.wan_transformer3d_unified.ImageConditioningProj
+      kwargs:
+        in_dim: 16
+      use_ap: False
+
+
+vae_kwargs:
+  vae_subpath: Wan2.1_VAE.pth
+  temporal_compression_ratio: 1
+  spatial_compression_ratio: 8
+
+text_encoder_kwargs:
+  text_encoder_subpath: models_t5_umt5-xxl-enc-bf16.pth
+  tokenizer_subpath: google/umt5-xxl
+  text_length: 512
+  vocab: 256384
+  dim: 4096
+  dim_attn: 4096
+  dim_ffn: 10240
+  num_heads: 64
+  num_layers: 24
+  num_buckets: 32
+  shared_pos: False
+  dropout: 0.0
+
+scheduler_kwargs:
+  scheduler_subpath: null
+  num_train_timesteps: 1000
+  shift: 5.0
+  use_dynamic_shifting: false
+  base_shift: 0.5
+  max_shift: 1.15
+  base_image_seq_len: 256
+  max_image_seq_len: 4096
+
+image_encoder_kwargs:
+  image_encoder_subpath: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+
+extra_pipeline_kwargs:
+  use_t_variant_noise: true
+  id_injection_level: 0.6
+
+validation_kwargs:
+  dataset_kwargs:
+    nuScenes:
+      type: composia.datasets.builder.nuScenesDataset
+      kwargs:
+        samples_path: "/horizon-bucket/saturn_v_dev/02_data/public_data/backup/nuScenes/origin"
+        ann_path: "/horizon-bucket/saturn_v_dev/01_users/yifan.zhan/nuScenes-metadata-full/nuscenes_mmdet3d-12Hz/nuscenes_interp_12Hz_infos_val_with_bid.pkl"
+        video_length: 33
+        valid_conditions: ["action", "bbox", "ttm"]
+        mode: "val"
+
+  eval_metrics: []  # ["fid"]
+  max_validation_samples: 1
+
+args:
+  crossview_attn_type: "full"

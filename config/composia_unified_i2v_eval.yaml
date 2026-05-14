@@ -1,0 +1,69 @@
+configs:
+  - config/wan_unified.yaml
+
+validation_kwargs:
+  # Validation mode name format:
+  # <model_mode>_<ego_action>_<bbox_edit>_<ttm_edit>_<case_filter>_<conditions>
+  # Example:
+  # i2v_moveleft_default_default_testmoveleftcase_action_bbox_nuScenes
+  # Meaning:
+  # - model_mode: i2v
+  # - ego_action: moveleft
+  # - bbox_edit: default
+  # - ttm_edit: default
+  # - case_filter: testmoveleftcase
+  # - conditions: action + bbox
+  #
+  # Values supported by the current code:
+  # - model_mode: t2v, i2v
+  # - ego_action: default, vx0, vx1, vleft, vright, hfstop, moveleft, moveright
+  # - bbox_edit: default, vx1, moveleft, moveright
+  # - ttm_edit: default, or <ref_id>-<length>-<width>-<height>
+  # - case_filter: default, or any whitelist name under assets/eval_select_nuScenes/*.txt
+  # - conditions: [], [action], [bbox], [action, bbox], [action, ttm], [action, bbox, ttm]
+  val_modes:
+    _delete_: true
+    # i2v_default_default_default_default_action_bbox_nuScenes:
+    #   dataset_name: "nuScenes"
+    #   every_n: 5
+    #   kwargs:
+    #     model_mode: "i2v"
+    #     resolution: [33, 256, 512]
+    #     conditions: ["action", "bbox"]
+    i2v_vx0_default_default_testmoveleftcase_action_bbox_nuScenes:
+      dataset_name: "nuScenes"
+      every_n: 5
+      kwargs:
+        model_mode: "i2v"
+        resolution: [33, 256, 512]
+        conditions: ["action", "bbox"]
+    i2v_moveleft_default_default_testmoveleftcase_action_bbox_nuScenes:
+      dataset_name: "nuScenes"
+      every_n: 5
+      kwargs:
+        model_mode: "i2v"
+        resolution: [33, 256, 512]
+        conditions: ["action", "bbox"]
+    i2v_moveright_default_default_testmoverightcase_action_bbox_nuScenes:
+      dataset_name: "nuScenes"
+      every_n: 5
+      kwargs:
+        model_mode: "i2v"
+        resolution: [33, 256, 512]
+        conditions: ["action", "bbox"]
+    i2v_default_default_1-4.6-2.0-1.6_ttmcase_action_bbox_ttm_nuScenes:
+      dataset_name: "nuScenes"
+      every_n: 5
+      kwargs:
+        model_mode: "i2v"
+        resolution: [33, 256, 512]
+        conditions: ["action", "bbox", "ttm"]
+    i2v_hfstop_moveright_default_testhfstopmoverightcase_action_bbox_nuScenes:
+      dataset_name: "nuScenes"
+      every_n: 5
+      kwargs:
+        model_mode: "i2v"
+        resolution: [33, 256, 512]
+        conditions: ["action", "bbox"]
+
+  max_validation_samples: 150
