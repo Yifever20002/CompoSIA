@@ -22,6 +22,12 @@ Qian Zhang<sup>2</sup>,
 
 <sup>*</sup>Equal Contribution    <sup>‡</sup>Project Lead    <sup>†</sup>Corresponding Author
 
+<p align="center">
+  <img src="images/logo_utokyo.png" alt="The University of Tokyo" height="48">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/logo_horizonrobotics.webp" alt="Horizon Robotics" height="48">
+</p>
+
 <br>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2603.12864-b31b1b.svg)](https://arxiv.org/abs/2603.12864)

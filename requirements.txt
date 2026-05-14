@@ -1,26 +1,52 @@
-Pillow
-einops
-safetensors
-timm
-tomesd
-# torch>=2.1.2
-torchdiffeq
-torchsde
-decord
-datasets
-numpy
-scikit-image
-opencv-python
-omegaconf
-SentencePiece
-# albumentations
-imageio[ffmpeg]
-imageio[pyav]
-tensorboard
+# PyTorch 2.7+ is required by videox_fun.models.* for torch.nn.attention.flex_attention.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+
+accelerate>=1.0.0,<2
+diffusers>=0.30.1,<0.33
+transformers>=4.46.2,<5
+datasets<5
+
+Pillow<13
+addict
 beautifulsoup4
+decord
+einops
 ftfy
 func_timeout
-accelerate>=0.25.0
-gradio>=3.41.2,<=3.48.0
-diffusers>=0.30.1,<=0.31.0
-transformers>=4.46.2
+imageio[ffmpeg]
+imageio[pyav]
+matplotlib<4
+numpy<2.3
+omegaconf
+opencv-python
+packaging
+psutil
+pydantic
+pyquaternion
+PyYAML
+safetensors
+scikit-image
+scipy
+sentencepiece
+shapely
+tensorboard
+timm
+tomesd
+torchdiffeq
+torchmetrics
+torchsde
+tqdm
+yapf
+
+# Optional runtime accelerators used only when installed:
+# flash-attn, sageattention, xfuser/pai_fuser, deepspeed
+#
+# Optional metrics:
+# met3r is needed only when validation_kwargs.eval_metrics contains "met3r".
+# vbench is needed only when compute_vbench=True.
+#
+# pytorch3d is used only for pytorch3d.transforms.matrix_to_quaternion in
+# composia.utils.train_utils. Install a wheel matching your CUDA/PyTorch stack
+# if your environment provides one.
