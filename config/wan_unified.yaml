@@ -59,8 +59,8 @@ validation_kwargs:
     nuScenes:
       type: composia.datasets.builder.nuScenesDataset
       kwargs:
-        samples_path: "/horizon-bucket/saturn_v_dev/02_data/public_data/backup/nuScenes/origin"
-        ann_path: "/horizon-bucket/saturn_v_dev/01_users/yifan.zhan/nuScenes-metadata-full/nuscenes_mmdet3d-12Hz/nuscenes_interp_12Hz_infos_val_with_bid.pkl"
+        samples_path: "./nuScenes/origin"
+        ann_path: "./nuScenes-metadata-full/nuscenes_mmdet3d-12Hz/nuscenes_interp_12Hz_infos_val_with_bid.pkl"
         video_length: 33
         valid_conditions: ["action", "bbox", "ttm"]
         mode: "val"
