@@ -147,7 +147,7 @@ def evaluate_met3r(
 
 
 class StyleGanFVDMetric:
-    pretrained_model_path="/horizon-bucket/saturn_v_4dlabel/008_Simulation/001_users/qingjie.wang/.cache/torch/hub/fvd/styleganv/i3d_torchscript.pt"
+    pretrained_model_path=".cache/torch/hub/fvd/styleganv/i3d_torchscript.pt"
     def __init__(self, device='cpu'):
         self.device = device
         self.i3d = self.load_i3d_pretrained()
