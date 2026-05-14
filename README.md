@@ -25,7 +25,7 @@ Qian Zhang<sup>2</sup>,
 <p align="center">
   <img src="images/logo_utokyo.png" alt="The University of Tokyo" height="48">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/logo_horizonrobotics.webp" alt="Horizon Robotics" height="48">
+  <img src="images/logo_horizonrobotics.jpg" alt="Horizon Robotics" height="48">
 </p>
 
 <br>
