@@ -6,8 +6,8 @@ export TORCH_HOME=${TORCH_HOME:-/tmp/torch_cache}
 
 export OUTPUT_DIR=$DEFAULT_OUTPUT_DIR/test/
 export MODEL_NAME=${MODEL_NAME:-"models/Wan2.1-T2V-1.3B"}
-export EVAL_CKPT=${EVAL_CKPT:-"models/composia/mp_rank_00_model_states.pt"}
-export VAE_PATH=${VAE_PATH:-"models/vae/dcae_td_47000.pkl"}
+export EVAL_CKPT=${EVAL_CKPT:-"models/composia/composia-transformer.pt"}
+export VAE_PATH=${VAE_PATH:-"models/vae/composia-vae.pkl"}
 
 EXTRA_ARGS=(
     --config_path="config/composia_unified_i2v_eval.yaml"
