@@ -183,8 +183,8 @@ The script uses:
 
 ```bash
 MODEL_NAME=${MODEL_NAME:-models/Wan2.1-T2V-1.3B}
-EVAL_CKPT=${EVAL_CKPT:-models/composia/mp_rank_00_model_states.pt}
-VAE_PATH=${VAE_PATH:-models/vae/dcae_td_47000.pkl}
+EVAL_CKPT=${EVAL_CKPT:-models/composia/composia-transformer.pt}
+VAE_PATH=${VAE_PATH:-models/vae/composia-vae.pkl}
 ```
 
 For the Hugging Face release filenames, run:
