@@ -132,15 +132,6 @@ Download links:
 - Base model: [Wan-AI/Wan2.1-T2V-1.3B](https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B)
 - CompoSIA weights: [SUDOKISUI/CompoSIA](https://huggingface.co/SUDOKISUI/CompoSIA)
 
-You can also keep the files anywhere and pass explicit paths when running evaluation:
-
-```bash
-MODEL_NAME=/path/to/Wan2.1-T2V-1.3B \
-EVAL_CKPT=/path/to/composia-transformer.pt \
-VAE_PATH=/path/to/composia-vae.pkl \
-bash run_eval.sh
-```
-
 ## 🗂️ nuScenes Data
 
 The released metadata files are hosted in [SUDOKISUI/CompoSIA](https://huggingface.co/SUDOKISUI/CompoSIA):
