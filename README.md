@@ -187,6 +187,15 @@ The evaluation modes are configured in `config/composia_unified_i2v_eval.yaml`. 
 
 ---
 
+## 🙏 Acknowledgements
+
+CompoSIA builds on the open-source video generation and autonomous driving research ecosystem. Our base generative model is built upon [Wan2.1](https://github.com/Wan-Video/Wan2.1), and our implementation benefits from the [VideoX-Fun](https://github.com/aigc-apps/VideoX-Fun) codebase.
+
+We also thank [NVIDIA Cosmos](https://github.com/nvidia-cosmos) for inspiring components of our projection pipeline, and the developers of [Hugging Face Diffusers](https://github.com/huggingface/diffusers), [Accelerate](https://github.com/huggingface/accelerate), and [Transformers](https://github.com/huggingface/transformers) for their model and inference tooling.
+
+Our evaluation and data processing are built around the [nuScenes](https://www.nuscenes.org/nuscenes) dataset. We also acknowledge [MEt3R](https://github.com/mohammadasim98/met3r) and [VBench](https://github.com/Vchitect/VBench) for open-source video evaluation tools.
+
+---
 
 ## 🧪 Citation
 If you find our work useful, please cite it as
