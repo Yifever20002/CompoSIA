@@ -134,7 +134,7 @@ huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B \
   --local-dir models/Wan2.1-T2V-1.3B
 ```
 
-Download the released CompoSIA weights:
+Download the released CompoSIA weights[https://huggingface.co/SUDOKISUI/CompoSIA]:
 
 ```bash
 huggingface-cli download SUDOKISUI/CompoSIA \
