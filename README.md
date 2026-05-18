@@ -127,25 +127,10 @@ models/
     └── composia-vae.pkl
 ```
 
-Download the base model from Hugging Face:
+Download links:
 
-```bash
-huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B \
-  --local-dir models/Wan2.1-T2V-1.3B
-```
-
-Download the released CompoSIA weights:
-
-```bash
-huggingface-cli download SUDOKISUI/CompoSIA \
-  transformer/composia-transformer.pt \
-  vae/composia-vae.pkl \
-  --local-dir models/composia-release
-
-mkdir -p models/composia models/vae
-mv models/composia-release/transformer/composia-transformer.pt models/composia/
-mv models/composia-release/vae/composia-vae.pkl models/vae/
-```
+- Base model: [Wan-AI/Wan2.1-T2V-1.3B](https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B)
+- CompoSIA weights: [SUDOKISUI/CompoSIA](https://huggingface.co/SUDOKISUI/CompoSIA)
 
 You can also keep the files anywhere and pass explicit paths when running evaluation:
 
@@ -158,7 +143,7 @@ bash run_eval.sh
 
 ## 🗂️ nuScenes Data
 
-The released metadata files are hosted in `SUDOKISUI/CompoSIA`:
+The released metadata files are hosted in [SUDOKISUI/CompoSIA](https://huggingface.co/SUDOKISUI/CompoSIA):
 
 ```bash
 mkdir -p nuScenes-metadata-full/nuscenes_mmdet3d-12Hz
@@ -168,7 +153,7 @@ huggingface-cli download SUDOKISUI/CompoSIA \
   --local-dir nuScenes-metadata-full/nuscenes_mmdet3d-12Hz
 ```
 
-For images, download nuScenes from the official nuScenes website and unpack it so the sample images are available under:
+For images, download nuScenes from the [official nuScenes website](https://www.nuscenes.org/nuscenes) and unpack it so the sample images are available under:
 
 ```text
 nuScenes/origin/
