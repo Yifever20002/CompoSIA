@@ -5,7 +5,6 @@ import json
 import numpy as np
 from scipy.linalg import sqrtm
 import torch.nn.functional as F
-from met3r import MEt3R
 from typing import Tuple, Optional
 from torch import Tensor
 from collections import defaultdict
@@ -57,6 +56,14 @@ def evaluate_met3r(
             align_corners=False
         )
     inputs = rearrange(inputs, "(b f v) c h w -> (b f) v c h w", v=num_views, b=b, f=f)
+
+    try:
+        from met3r import MEt3R
+    except ImportError as exc:
+        raise ImportError(
+            "MEt3R is required only when eval_metrics contains 'met3r'. "
+            "Install it with: pip install git+https://github.com/mohammadasim98/met3r"
+        ) from exc
 
     # Initialize MEt3R
     metric = MEt3R(

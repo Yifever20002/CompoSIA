@@ -263,12 +263,19 @@ def prepare_action_condition(actions: torch.Tensor, temporal_compression_ratio: 
 #     return x
 
 
-from pytorch3d.transforms import matrix_to_quaternion
 def sample_proj_mats(proj_mats: torch.Tensor, num_cameras: int, temporal_compression_ratio: int =4) -> torch.Tensor:
     """Sample projection matrices by keeping the first frame in each group of 4 along time.
 
     Input: (B, N*F, 4, 4). Output: (B, N*F', 4, 4) where F' = ceil(F/4).
     """
+    try:
+        from pytorch3d.transforms import matrix_to_quaternion
+    except ImportError as exc:
+        raise ImportError(
+            "pytorch3d is required only when using proj_mats conditions. "
+            "Install a wheel matching your PyTorch/CUDA environment before enabling proj_mats."
+        ) from exc
+
     x = rearrange(proj_mats, "b (n f) h w -> (b n) f h w", n=num_cameras)
     trans_norm = torch.norm(x[:, :, 0:3, 3], dim=-1)  # (B*N, F)
     non_zero_trans = trans_norm > 1e-8
