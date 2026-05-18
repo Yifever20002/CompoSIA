@@ -42,10 +42,11 @@ Qian Zhang<sup>2</sup>,
 
 ---
 
-## 📌 TODO
+## 📌 Release Status
 
-- [x] Paper release
-- [ ] Inference code (before June, 2026)
+- [x] Paper
+- [x] Inference code
+- [x] Model weights
 - [ ] Training code
 
 ---
@@ -54,26 +55,18 @@ Qian Zhang<sup>2</sup>,
 
 **CompoSIA** is a compositional driving video simulator designed for **fine-grained adversarial scenario generation** through **disentangled control** of:
 
-* **Structure** 🚗
-  
-  element layout placement;
-
-* **Identity** 🎨
-  
-  element appearance editing from a single reference image;
-
-* **Action** 🎮
-  
-  ego-motion and controllable traffic dynamics.
+* **Structure** 🚗: object layout and trajectory placement
+* **Identity** 🎨: appearance editing from a single reference image
+* **Action** 🎮: ego-motion and controllable traffic dynamics
 
 ---
 
 ## ✨ Key Features
 
-* **Disentangled compositional control**
-* **Noise-level identity injection for pose-agnostic editing**
-* **Hierarchical dual-branch action control**
-* **Adversarial scenario synthesis for planner stress-testing**
+* **Disentangled structure, identity, and action control**
+* **Pose-agnostic identity injection**
+* **Hierarchical dual-branch action conditioning**
+* **Scenario generation for planner stress testing**
 
 
 ---
